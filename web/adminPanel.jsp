@@ -14,10 +14,10 @@
 <h1><%=request.getAttribute("upload_message")%></h1><br>
 
 <%
-    
+    }
 %>
 
-<form action="/uploadFile" method="post" enctype="multipart/form-data">
+<form action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file" >
     <input type="submit" value="upload" >
 

@@ -5,6 +5,22 @@
     <title>Your admin panel</title>
 </head>
 <body>
-This is your admin panel...
+<h1>This is your admin panel. You can upload files here</h1>
+<br>
+<%
+    if (request.getAttribute("upload_message") != null && !request.getAttribute("upload_message").equals("")) {
+
+%>
+<h1><%=request.getAttribute("upload_message")%></h1><br>
+
+<%
+    }
+%>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" >
+    <input type="submit" value="upload" >
+
+</form>
 </body>
 </html>

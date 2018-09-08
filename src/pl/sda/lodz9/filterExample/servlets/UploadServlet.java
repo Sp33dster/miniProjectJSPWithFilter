@@ -1,6 +1,7 @@
 package pl.sda.lodz9.filterExample.servlets;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import java.io.*;
 import java.nio.file.Paths;
 
 @WebServlet(name = "UploadServlet", urlPatterns = "/upload")
+@MultipartConfig
 public class UploadServlet extends HttpServlet {
 
     private static final String FILE_PATH = "C:\\temp\\";
@@ -35,7 +37,7 @@ public class UploadServlet extends HttpServlet {
         outputStream.close();
 
         if(uploaded.exists()){
-            request.setAttribute("upload_message", "File uploaded " + fileName + "successfully");
+            request.setAttribute("upload_message", "File uploaded " + fileName + " successfully");
             request.getRequestDispatcher("/adminPanel.jsp").forward(request,response);
 
         }   else {
